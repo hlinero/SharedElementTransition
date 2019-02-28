@@ -13,6 +13,7 @@
     android:transitionName="@string/transition_string"
     android:orientation="vertical"
     app:cardCornerRadius="3dp"
+    android:foreground="?android:attr/selectableItemBackground"
     tools:ignore="MissingPrefix">
 
     <LinearLayout
