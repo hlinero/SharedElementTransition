@@ -2,6 +2,7 @@ package com.example.sharedelementtransition;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -9,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,19 +25,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     //region Interface
     public interface ClickListener {
-        void onCardSelected(int position, View cardView);
-        void onStartNavigationSelected(int position);
+        void onCardSelected(View view, int position);
     }
     //endregion
 
     //region Variables
-    private ArrayList<String> items;
+    private List<Integer> items;
     private static RecyclerViewAdapter.ClickListener clickListener;
     private Context context;
     //endregion
 
     //region Constructor
-    public RecyclerViewAdapter(ArrayList<String> items, Context context) {
+    public RecyclerViewAdapter(List<Integer> items, Context context) {
         this.items = items;
         this.context = context;
     }
@@ -55,6 +57,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(RecyclerViewAdapter.ViewHolder card, int position) {
 
+        card.imageView.setBackgroundResource(items.get(position));
     }
     //endregion
 
@@ -70,7 +73,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         //region Widgets
 
         @BindView(R.id.map_view_location_card)
-        CardView mapViewLocationCard;
+        LinearLayout mapViewLocationCard;
+
+        @BindView(R.id.imageView)
+        ImageView imageView;
 
         //endregion
 
@@ -83,7 +89,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             // Set click listener for the card
             mapViewLocationCard.setOnClickListener(view -> {
                 if(clickListener != null){
-                    clickListener.onCardSelected(getLayoutPosition(),view);
+                    clickListener.onCardSelected(view, getLayoutPosition());
                 }
             });
         }
