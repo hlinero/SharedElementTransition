@@ -46,7 +46,7 @@ public class FirstActivity extends AppCompatActivity implements RecyclerViewAdap
         items.add(R.drawable.china);
 
         // Configuring the recycler view adapter
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(items,this);
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(items);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, NUM_OF_COLUMNS));
         recyclerView.setAdapter(recyclerViewAdapter);
