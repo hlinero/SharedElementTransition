@@ -9,9 +9,11 @@ import butterknife.ButterKnife;
 
 public class SecondActivity extends AppCompatActivity {
 
+    // Views
     @BindView(R.id.imageView)
     ImageView imageView;
 
+    // Variables
     public static final String BUNDLE_KEY = "place";
 
     @Override
@@ -27,6 +29,5 @@ public class SecondActivity extends AppCompatActivity {
 
         // Set the image
         imageView.setImageResource(image);
-
     }
 }
