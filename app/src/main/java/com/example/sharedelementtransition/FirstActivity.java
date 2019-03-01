@@ -68,7 +68,7 @@ public class FirstActivity extends AppCompatActivity implements RecyclerViewAdap
         Intent intent = new Intent(this, SecondActivity.class);
         intent.putExtra(SecondActivity.BUNDLE_KEY,items.get(position));
 
-        // Get the transition name from the string
+        // Get the transition name from the strings xml file
         String transitionName = getString(R.string.transition_string);
 
         // Creating options
