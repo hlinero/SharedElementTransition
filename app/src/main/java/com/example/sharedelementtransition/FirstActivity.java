@@ -28,7 +28,7 @@ public class FirstActivity extends AppCompatActivity implements RecyclerViewAdap
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_first);
 
         // Binding views
         ButterKnife.bind(this);
