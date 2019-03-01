@@ -23,7 +23,7 @@ public class FirstActivity extends AppCompatActivity implements RecyclerViewAdap
 
     // Variables
     private List<Integer> items = new ArrayList<>();
-    private final static int NUM_OF_COLUMS = 2;
+    private final static int NUM_OF_COLUMNS = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class FirstActivity extends AppCompatActivity implements RecyclerViewAdap
         // Binding views
         ButterKnife.bind(this);
 
-        // List of images
+        // Adding images to list
         items.add(R.drawable.panama);
         items.add(R.drawable.panama2);
         items.add(R.drawable.tampa);
@@ -48,7 +48,7 @@ public class FirstActivity extends AppCompatActivity implements RecyclerViewAdap
         // Configuring the recycler view adapter
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(items,this);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, NUM_OF_COLUMS));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, NUM_OF_COLUMNS));
         recyclerView.setAdapter(recyclerViewAdapter);
 
         // Listening to view clicks
@@ -58,12 +58,13 @@ public class FirstActivity extends AppCompatActivity implements RecyclerViewAdap
     // Listening to card clicks
     @Override
     public void onCardSelected(View view, int position) {
-        animateIntent(view, position);
+        doSharedElementTransition(view, position);
     }
 
-    public void animateIntent(View view, int position) {
+    // Method for executing animation
+    public void doSharedElementTransition(View view, int position) {
 
-        // Ordinary Intent for launching a new activity
+        // Intent for launching activity
         Intent intent = new Intent(this, SecondActivity.class);
         intent.putExtra(SecondActivity.BUNDLE_KEY,items.get(position));
 
@@ -72,12 +73,11 @@ public class FirstActivity extends AppCompatActivity implements RecyclerViewAdap
 
         // Creating options
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
-                        view,   // Starting view
+                        view,   // clicked view
                         transitionName    // The transition string
                 );
 
-        //Start the Intent
+        // Start the Intent
         ActivityCompat.startActivity(this, intent, options.toBundle());
-
     }
 }
