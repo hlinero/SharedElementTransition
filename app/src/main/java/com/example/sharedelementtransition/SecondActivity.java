@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Second extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity {
 
     @BindView(R.id.imageView)
     ImageView imageView;

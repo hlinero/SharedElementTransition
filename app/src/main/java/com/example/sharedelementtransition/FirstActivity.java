@@ -6,18 +6,16 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.ClickListener {
+public class FirstActivity extends AppCompatActivity implements RecyclerViewAdapter.ClickListener {
 
     // Widgets
     @BindView(R.id.recyclerView)
@@ -66,8 +64,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
     public void animateIntent(View view, int position) {
 
         // Ordinary Intent for launching a new activity
-        Intent intent = new Intent(this, Second.class);
-        intent.putExtra(Second.BUNDLE_KEY,items.get(position));
+        Intent intent = new Intent(this, SecondActivity.class);
+        intent.putExtra(SecondActivity.BUNDLE_KEY,items.get(position));
 
         // Get the transition name from the string
         String transitionName = getString(R.string.transition_string);
