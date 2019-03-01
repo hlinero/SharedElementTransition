@@ -28,7 +28,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.items = items;
     }
 
-    // Complying with RecyclerView.Adapter<TourRecyclerViewAdapter.ViewHolder> Methods
+    
     @Override
     public RecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card, parent, false);
