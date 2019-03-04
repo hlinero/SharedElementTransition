@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         // Binding views
         ButterKnife.bind(this);
 
-        // Adding images to list
+        // Adding images to list: Put your own images here
         items.add(R.drawable.panama);
         items.add(R.drawable.panama2);
         items.add(R.drawable.tampa);
