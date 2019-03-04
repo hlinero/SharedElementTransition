@@ -6,6 +6,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -23,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
     // Variables
     private List<Integer> items = new ArrayList<>();
-    private final static int NUM_OF_COLUMNS = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         // Configuring the recycler view adapter
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(items);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, NUM_OF_COLUMNS));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(recyclerViewAdapter);
 
         // Listening to view clicks
