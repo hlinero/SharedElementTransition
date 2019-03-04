@@ -15,7 +15,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FirstActivity extends AppCompatActivity implements RecyclerViewAdapter.ClickListener {
+public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.ClickListener {
 
     // Widgets
     @BindView(R.id.recyclerView)
