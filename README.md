@@ -1,2 +1,2 @@
 # SharedElementTransition
-Showing the shared element transition
+Implementing the shared element transition in Android using Java.
